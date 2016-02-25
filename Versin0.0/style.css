@@ -1,0 +1,247 @@
+.d_none {display:none;}
+
+    
+//html {height:1800px;width:1240px;}
+html {height:900px;width:1240px;}
+body {background-color:#1C05FF;}
+
+//#Game{position:relative;height:1800px;width:1240px;}
+#Game{position:relative;height:900px;width:1240px;}
+#Player1{position:absolute;top:0px;width:100%;height;900px;display:none}
+//#Player2{position:absolute;top:900px;width:100%;height;900px;}
+#Player2{position:absolute;top:0px;width:100%;height;900px;}
+#Action{position:absolute;background-color:white;height:100px;width:200px;z-index:4;overflow:hidden;}
+#Territory {position:absolute;top:0;left:0;}
+.Player1 .Hand_A img {
+	transform-origin:left bottom ;
+	transform: rotate( 90deg );
+	position:absolute;
+	top: -75px;
+}
+.Discard_A img , .Exclusion_A img{
+	transform-origin:right bottom ;
+	transform: rotate( -90deg );
+	position:absolute;
+	left:65px;
+	top: -115px;
+}
+img:hover {z-index:2;border: 3px solid while;}
+
+.g_top , .Pay{z-index:1;}
+.Target{opacity:0.8;}
+.Player1 .Hand_A{height:140px; width:950px; border: 3px solid yellow;position:relative;top:20px;left:264px;}
+.Player1 .Spell_A{height:140px; width:950px; border: 3px solid green;position:absolute;top:166px;left:264px;}
+.Player1 .Control_A{height:405px; width:950px; border: 3px solid red;position:absolute;top:312px;left:264px;}
+.Player1 .Force_A {height:140px; width:950px; border: 3px solid white;position:absolute;top:723px;left:264px;}
+.Player1 .Exclusion_A {height:100px; width:180px; border: 3px solid fuchsia;position:absolute;top:20px;left:20px;}
+.Player1 .Play_A {height:140px; width:180px; border: 3px solid lime;position:absolute;top:159px;left:20px;}
+.Player1 .Cost_A {height:140px; width:180px; border: 3px solid purple;position:absolute;top:320px;left:20px;}
+.Player1 .Discard_A {height:100px; width:180px; border: 3px solid gray;position:absolute;top:481px;left:20px;}
+.Player1 .Deck_A {height:100px; width:180px; border: 3px solid aqua;position:absolute;top:602px;left:20px;}
+.Player1 .Damege_A {height:140px; width:180px; border: 3px solid black;position:absolute;top:723px;left:20px;}
+.Player2 .Force_A {height:140px; width:950px; border: 3px solid white;position:absolute;top:20px;left:20px;}
+.Player2 .Control_A{height:405px; width:950px; border: 3px solid red;position:absolute;top:166px;left:20px;}
+.Player2 .Spell_A{height:140px; width:950px; border: 3px solid green;position:absolute;top:577px;left:20px;}
+.Player2 .Hand_A{height:140px; width:950px; border: 3px solid yellow;position:absolute;top:723px;left:20px;}
+.Player2 .Damege_A {height:140px; width:180px; border: 3px solid black;position:absolute;top:20px;right:20px;}
+.Player2 .Deck_A {height:100px; width:180px; border: 3px solid aqua;position:absolute;top:181px;right:20px;}
+.Player2 .Discard_A {height:100px; width:180px; border: 3px solid gray;position:absolute;top:302px;right:20px;}
+.Player2 .Cost_A {height:140px; width:180px; border: 3px solid purple;position:absolute;top:423px;right:20px;}
+.Player2 .Play_A {height:140px; width:180px; border: 3px solid lime;position:absolute;top:584px;right:20px;}
+.Player2 .Exclusion_A {height:100px; width:180px; border: 3px solid fuchsia;position:absolute;top:763px;right:20px;}
+.EGO_A{background-color:#FAFAFA;}
+.ARA_A{background-color:#F2D8DF;}
+.WIZ_A{background-color:#4387E9;}
+.Dar_A{background-color:#22C350;}
+.Kyo_A{background-color:#FFEF85;}
+.Era_A{background-color:#191919;}
+.Non_A{background-color:#8C8C8C;}
+.Cost_B, .Play_B{height:130px; width:170px;position:relative;top:5px;left:25px;}
+.Discard_B,.Exclusion_B{height:90px; width:170px;position:relative;top:5px;left:5px;}
+.area0 {float:left; width:130px; height:130px; position:relative;top:5px;left:5px;}
+.area1 {float:left; width:130px; height:130px; position:relative;top:5px;left:10px;}
+.area2 {float:left; width:130px; height:130px; position:relative;top:5px;left:15px;}
+.area3 {float:left; width:130px; height:130px; position:relative;top:5px;left:20px;}
+.area4 {float:left; width:130px; height:130px; position:relative;top:5px;left:25px;}
+.area5 {float:left; width:130px; height:130px; position:relative;top:5px;left:30px;}
+.area6 {float:left; width:130px; height:130px; position:relative;top:5px;left:35px;}
+.area7 {float:left; width:130px; height:130px; position:relative;top:10px;left:5px;}
+.area8 {float:left; width:130px; height:130px; position:relative;top:10px;left:10px;}
+.area9 {float:left; width:130px; height:130px; position:relative;top:10px;left:15px;}
+.area10 {float:left; width:130px; height:130px; position:relative;top:10px;left:20px;}
+.area11 {float:left; width:130px; height:130px; position:relative;top:10px;left:25px;}
+.area12 {float:left; width:130px; height:130px; position:relative;top:10px;left:30px;}
+.area13 {float:left; width:130px; height:130px; position:relative;top:10px;left:35px;}
+.area14 {float:left; width:130px; height:130px; position:relative;top:10px;left:5px;}
+.area15 {float:left; width:130px; height:130px; position:relative;top:10px;left:10px;}
+.area16 {float:left; width:130px; height:130px; position:relative;top:10px;left:15px;}
+.area17 {float:left; width:130px; height:130px; position:relative;top:10px;left:20px;}
+.area18 {float:left; width:130px; height:130px; position:relative;top:10px;left:25px;}
+.area19 {float:left; width:130px; height:130px; position:relative;top:10px;left:30px;}
+.area20 {float:left; width:130px; height:130px; position:relative;top:10px;left:35px;}
+.Damege_A .area0 {clear:both; width:80px; height:120px; position:absolute;top:0px;left:0px;}
+.Damege_A .area1 {clear:both; width:80px; height:120px; position:absolute;top:0px;left:20px;}
+.Damege_A .area2 {clear:both; width:80px; height:120px; position:absolute;top:0px;left:40px;}
+.Damege_A .area3 {clear:both; width:80px; height:120px; position:absolute;top:0px;left:60px;}
+.Damege_A .area4 {clear:both; width:80px; height:120px; position:absolute;top:0px;left:80px;}
+.Damege_A .area5 {clear:both; width:80px; height:120px; position:absolute;top:10px;left:0px;}
+.Damege_A .area6 {clear:both; width:80px; height:120px; position:absolute;top:10px;left:20px;}
+.Damege_A .area7 {clear:both; width:80px; height:120px; position:absolute;top:10px;left:40px;}
+.Damege_A .area8 {clear:both; width:80px; height:120px; position:absolute;top:10px;left:60px;}
+.Damege_A .area9 {clear:both; width:80px; height:120px; position:absolute;top:10px;left:80px;}
+.Damege_A .area10 {clear:both; width:80px; height:120px; position:absolute;top:20px;left:0px;}
+.Damege_A .area11 {clear:both; width:80px; height:120px; position:absolute;top:20px;left:20px;}
+.Damege_A .area12 {clear:both; width:80px; height:120px; position:absolute;top:20px;left:40px;}
+.Damege_A .area13 {clear:both; width:80px; height:120px; position:absolute;top:20px;left:60px;}
+.Damege_A .area14 {clear:both; width:80px; height:120px; position:absolute;top:20px;left:80px;}
+.Hand_A .area0 {width:90px; height:130px; position:absolute;top:5px;left:10px;}
+.Hand_A .area1 {width:90px; height:130px; position:absolute;top:5px;left:50px;}
+.Hand_A .area2 {width:90px; height:130px; position:absolute;top:5px;left:90px;}
+.Hand_A .area3 {width:90px; height:130px; position:absolute;top:5px;left:130px;}
+.Hand_A .area4 {width:90px; height:130px; position:absolute;top:5px;left:170px;}
+.Hand_A .area5 {width:90px; height:130px; position:absolute;top:5px;left:210px;}
+.Hand_A .area6 {width:90px; height:130px; position:absolute;top:5px;left:250px;}
+.Hand_A .area7 {width:90px; height:130px; position:absolute;top:5px;left:290px;}
+.Hand_A .area8 {width:90px; height:130px; position:absolute;top:5px;left:330px;}
+.Hand_A .area9 {width:90px; height:130px; position:absolute;top:5px;left:370px;}
+.Hand_A .area10 {width:90px; height:130px; position:absolute;top:5px;left:410px;}
+.Hand_A .area11 {width:90px; height:130px; position:absolute;top:5px;left:450px;}
+.Hand_A .area12 {width:90px; height:130px; position:absolute;top:5px;left:490px;}
+.Hand_A .area13 {width:90px; height:130px; position:absolute;top:5px;left:530px;}
+.Hand_A .area14 {width:90px; height:130px; position:absolute;top:5px;left:570px;}
+.Hand_A .area15 {width:90px; height:130px; position:absolute;top:5px;left:610px;}
+.Hand_A .area16 {width:90px; height:130px; position:absolute;top:5px;left:650px;}
+.Hand_A .area17 {width:90px; height:130px; position:absolute;top:5px;left:690px;}
+.Hand_A .area18 {width:90px; height:130px; position:absolute;top:5px;left:730px;}
+.Hand_A .area19 {width:90px; height:130px; position:absolute;top:5px;left:770px;}
+.Hand_A .area20 {width:90px; height:130px; position:absolute;top:5px;left:810px;}
+.Hand_A .area21 {width:90px; height:130px; position:absolute;top:5px;left:850px;}
+/* 三角矢印を前（Front）に（左向き：Left）でつける */
+.arrowFL{ position:relative; bottom:-55px; left:0; padding-left:20px; z-index:3; }
+.Discard_A .arrowFL , .Exclusion_A .arrowFL{ bottom:-35px; left:0; }
+.arrowFL:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 5px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 15px solid #ffcc00;
+}
+/* 三角矢印を前（Front）に（右向き：Right）でつける */
+.arrowFR{ position:relative; bottom:-55px; left:85px; padding-left:20px; z-index:3; }
+.Discard_A .arrowFR , .Exclusion_A .arrowFR{ bottom:-35px; left:125px; }
+.arrowFR:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 5px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 15px solid #ffcc00;
+}
+.dis, .c_set{width:130px; height:130px;position:absolute;}
+.Control_A .c_set{position:relative;}
+.Discard_A .c_set, .Exclusion_A .c_set{width:170px; height:90px;position:absolute;}
+.card {top:5px;left:5px;width:80px; height:120px;position:absolute;}
+.Player1 .Hand_A .card {width:120px; height:80px;position:relative;}
+.Play_A .card, .Cost_A .card{left:25px;}
+.Damege_A .card{left:10px;top:0px;} 
+.un_card {top:10px;left:30px;width:120px; height:80px;position:absolute;}
+.ch_card {top:5px;left:25px;width:80px; height:120px;position:absolute;}
+.br_card {top:5px;left:25px;width:80px; height:120px;position:absolute;}
+.pa_card {top:5px;left:25px;width:80px; height:120px;position:absolute;}
+.pr_card {top:5px;left:25px;width:80px; height:120px;position:absolute;}
+.fa_card {top:5px;left:25px;width:80px; height:120px;position:absolute;}
+.pw_card{width:120px; height:80px;position:absolute;}
+.dr_card {top:-5px;}
+.u0, .i0{bottom:0px;left:10px;}
+img.o0{
+	transform-origin:right bottom ;
+	transform: rotate( -90deg );
+	left:50px;
+	top: -70px;
+	width:80px;
+	height:120px
+}
+.u1, .i1{bottom:5px;left:5px;}
+img.o1{
+	transform-origin:right bottom ;
+	transform: rotate( -90deg );
+	left:45px;
+	top: -75px;
+	width:80px;
+	height:120px
+}
+.u2, .i2{bottom:10px;left:0px;}
+img.o2{
+	transform-origin:right bottom ;
+	transform: rotate( -90deg );
+	left:40px;
+	top: -80px;
+	width:80px;
+	height:120px
+}
+.u3, .i3{bottom:15px;left:-5px;}
+img.o3{
+	transform-origin:right bottom;
+	transform: rotate( -90deg );
+	left:35px;
+	top: -85px;
+	width:80px;
+	height:120px
+}
+.u4, .i4{bottom:20px;left:-10px;}
+img.o4{
+	transform-origin:right bottom;
+	transform: rotate( -90deg );
+	left:30px;
+	top: -90px;
+	width:80px;
+	height:120px
+}
+.u5, .i5{bottom:25px;left:-15px;}
+img.o5{
+	transform-origin:right bottom;
+	transform: rotate( -90deg );
+	left:25px;
+	top: -95px;
+	width:80px;
+	height:120px
+}
+.u6, .i6{bottom:30px;left:-20px;}
+img.o6{
+	transform-origin:right bottom ;
+	transform: rotate( -90deg );
+	left:20px;
+	top: -100px;
+	width:80px;
+	height:120px
+}
+.u7, .i7{bottom:35px;left:-25px;}
+img.o7{
+	transform-origin:right bottom ;
+	transform: rotate( -90deg );
+	left:15px;
+	top: -105px;
+	width:80px;
+	height:120px
+}
+.u8, .i8{bottom:40px;left:-30px;}
+img.o8{
+	transform-origin:right bottom ;
+	transform: rotate( -90deg );
+	left:10px;
+	top: -110px;
+	width:80px;
+	height:120px
+}
+.u9, .i9{bottom:45px;left:-35px;}
+img.o9{
+	transform-origin:right bottom ;
+	transform: rotate( -90deg );
+	left:5px;
+	top: -115px;
+	width:80px;
+	height:120px
+}

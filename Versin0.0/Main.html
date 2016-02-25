@@ -1,0 +1,258 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+	<head>
+		<title>Aquarian Age System</title>
+		
+		<link href="./style.css" rel="stylesheet" type="text/css" media="all" />
+		<script src="./data.js" type="text/javascript"></script>
+		<script src="./system.js" type="text/javascript"></script>
+	</head>
+	<body onload="g_start()">
+		<div id="Game" class="Game" onclick="popUp(event,this)">
+			<div id="Player1" class="Player1" >
+				<div class="Territory">
+					<div class="Force_A">
+						<div id="Non_A1" class="Non_A area0">
+							<div class="c_set">
+								<img class="ch_card" src="./Image\Saga3/aq30001.jpg"></img>
+							</div>
+							<span class="arrowFL"></span>
+							<span class="arrowFR"></span>
+						</div>
+						<div id="Era_A1" class="Era_A area1">
+							<div class="c_set">
+								<img class="ch_card" src="./Image\Saga3/aq30172.jpg"></img>
+							</div>
+							<span class="arrowFL"></span>
+							<span class="arrowFR"></span>
+						</div>
+						<div id="Kyo_A1" class="Kyo_A area2">
+							<div class="c_set">
+								<img class="ch_card" src="./Image\Saga3/aq30137.jpg"></img>
+							</div>
+							<span class="arrowFL"></span>
+							<span class="arrowFR"></span>
+						</div>
+						<div id="Dar_A1" class="Dar_A area3">
+							<div class="c_set">
+							<img class="ch_card" src="./Image\Saga3/aq30103.jpg"></img>
+							</div>
+							<span class="arrowFL"></span>
+							<span class="arrowFR"></span>
+						</div>
+						<div id="WIZ_A1" class="WIZ_A area4">
+							<div class="c_set">
+								<img class="ch_card" src="./Image\Saga3/aq30069.jpg"></img>
+							</div>
+							<span class="arrowFL"></span>
+							<span class="arrowFR"></span>
+						</div>
+						<div id="ARA_A1" class="ARA_A area5">
+							<div class="c_set">
+								<img class="ch_card" src="./Image\Saga3/aq30035.jpg"></img>
+							</div>
+							<span class="arrowFL"></span>
+							<span class="arrowFR"></span>
+						</div>
+						<div id="EGO_A1" class="EGO_A area6">
+							<div class="c_set">
+								<img class="pw_card u0" src="./Image\Saga3/card_power.gif"></img>
+								<img class="ch_card" src="./Image\Saga3/aq30001.jpg"></img>
+							</div>
+							<span class="arrowFL"></span>
+							<span class="arrowFR"></span>
+						</div>
+					</div>
+					<div class="Control_A">
+						<div class="area0">
+							<div class="c_set">
+								<img class="pw_card u0" src="./Image\Saga3/card_power.gif"></img>
+								<img class="ch_card" src="./Image\Saga3/aq30001.jpg"></img>
+							</div>
+						</div>
+						<div class="area20">
+							<div class="c_set">
+								<img class="pw_card u0" src="./Image\Saga3/card_power.gif"></img>
+								<img class="ch_card" src="./Image\Saga3/aq30001.jpg"></img>
+							</div>
+						</div>
+					</div>
+					<div class="Spell_A">
+						<div class="area0">
+							<div class="c_set">
+								<img class="pr_card" src="./Image\Saga3/aq30027.jpg"></img>
+							</div>
+						</div>
+						<div class="area6">
+							<div class="c_set">
+								<img class="pr_card" src="./Image\Saga3/aq30027.jpg"></img>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="Cost_A">
+					<div class="Cost_B">
+						<div class="c_set">
+							<img class="card" src="./Image\Saga3/aq30001.jpg"></img>
+						</div>
+						<span class="arrowFL"></span>
+						<span class="arrowFR"></span>
+					</div>
+				</div>
+				<div class="Play_A">
+					<div class="Play_B">
+						<div class="c_set">
+							<img class="card" src="./Image\Saga3/aq30001.jpg"></img>
+						</div>
+						<span class="arrowFL"></span>
+						<span class="arrowFR"></span>
+					</div>
+				</div>
+				<div class="Hand_A">
+					<div class="area0">
+						<img class="card" src="./Image\Saga3/card_power.gif"></img>
+					</div>
+					<div class="area21">
+						<img class="card" src="./Image\Saga3/card_power.gif"></img>
+					</div>
+				</div>
+				<div class="Deck_A">
+					<img class="un_card" src="./Image\Saga3//card_power.gif"></img>
+				</div>
+				<div class="Discard_A">
+					<div class="Discard_B">
+						<div class="c_set">
+							<img class="card" src="./Image\Saga3/aq30001.jpg"></img>
+						</div>
+						<span class="arrowFL"></span>
+						<span class="arrowFR"></span>
+					</div>
+				</div>
+				<div class="Damege_A">
+					<div class="area0">
+						<img class="card" src="./Image\Saga3/aq30001.jpg"></img>
+					</div>
+				</div>
+				<div class="Exclusion_A">
+					<div class="Exclusion_B">
+						<div class="c_set">
+							<img class="card" src="./Image\Saga3/aq30001.jpg"></img>
+						</div>
+						<span class="arrowFL"></span>
+						<span class="arrowFR"></span>
+					</div>
+				</div>
+			</div>
+			<div id="Player2" class="Player2">
+				<div id="Territory2" class="Territory">
+					<div id="Force_A2" class="Force_A">
+						<div id="EGO_A2" class="EGO_A area0">
+							<span class="arrowFL" onClick="arrowL(event,this)"></span>
+							<span class="arrowFR" onClick="arrowR(event,this)"></span>
+						</div>
+						<div id="ARA_A2" class="ARA_A area1">
+							<span class="arrowFL" onClick="arrowL(event,this)"></span>
+							<span class="arrowFR" onClick="arrowR(event,this)"></span>
+						</div>
+						<div id="WIZ_A2" class="WIZ_A area2">
+							<span class="arrowFL" onClick="arrowL(event,this)"></span>
+							<span class="arrowFR" onClick="arrowR(event,this)"></span>
+						</div>
+						<div id="Dar_A2" class="Dar_A area3">
+							<span class="arrowFL" onClick="arrowL(event,this)"></span>
+							<span class="arrowFR" onClick="arrowR(event,this)"></span>
+						</div>
+						<div id="Kyo_A2" class="Kyo_A area4">
+							<span class="arrowFL" onClick="arrowL(event,this)"></span>
+							<span class="arrowFR" onClick="arrowR(event,this)"></span>
+						</div>
+						<div id="Era_A2" class="Era_A area5">
+							<span class="arrowFL" onClick="arrowL(event,this)"></span>
+							<span class="arrowFR" onClick="arrowR(event,this)"></span>
+						</div>
+						<div id="Non_A2" class="Non_A area6">
+							<div class="c_set p0">
+								<img class="ch_card" src="./Image\Saga3/aq30171.jpg"></img>
+							</div>
+							<div class="c_set p1 g_top">
+								<img class="ch_card" onclick="popUp(event,this)" src="./Image\Saga3/aq30001.jpg"></img>
+							</div>
+							<span class="arrowFL" onClick="arrowL(event,this)"></span>
+							<span class="arrowFR" onClick="arrowR(event,this)"></span>
+						</div>
+					</div>
+					<div id="Control_A2" class="Control_A">
+					</div>
+					<div id="Spell_A2" class="Spell_A">
+						<div class="area0">
+							<div class="c_set">
+								<img class="pr_card" src="./Image\Saga3/aq30027.jpg"></img>
+							</div>
+						</div>
+						<div class="area6">
+							<div class="c_set">
+								<img class="pr_card" src="./Image\Saga3/aq30027.jpg"></img>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="Cost_A2" class="Cost_A">
+					<div class="Cost_B">
+						<div class="c_set">
+							<img class="card" src="./Image\Saga3/aq30171.jpg"></img>
+						</div>
+						<div class="c_set g_top">
+							<img class="card" src="./Image\Saga3/aq30001.jpg"></img>
+						</div>
+						<span class="arrowFL" onClick="arrowL(event,this)"></span>
+						<span class="arrowFR" onClick="arrowR(event,this)"></span>
+					</div>
+				</div>
+				<div id="Play_A2" class="Play_A">
+					<div class="Play_B">
+						<span class="arrowFL" onClick="arrowL(event,this)"></span>
+						<span class="arrowFR" onClick="arrowR(event,this)"></span>
+					</div>
+				</div>
+				<div id="Hand_A2" class="Hand_A">
+				</div>
+				<div id="Deck_A2" class="Deck_A">
+					<img class="un_card" onclick="popUp(event,this)" src="./Image\Saga3/card_power.gif"></img>
+				</div>
+				<div id="Discard_A2" class="Discard_A">
+					<div class="Discard_B">
+						<span class="arrowFL" onClick="arrowL(event,this)"></span>
+						<span class="arrowFR" onClick="arrowR(event,this)"></span>
+					</div>
+				</div>
+				<div id="Damege_A2" class="Damege_A">
+				</div>
+				<div id="Exclusion_A2" class="Exclusion_A">
+	                <div class="Exclusion_B">
+						<div class="c_set">
+							<img class="card" src="./Image\Saga3/aq30171.jpg"></img>
+						</div>
+						<div class="c_set g_top">
+							<img class="card" src="./Image\Saga3/aq30001.jpg"></img>
+						</div>
+						<span class="arrowFL" onClick="arrowL(event,this)"></span>
+						<span class="arrowFR" onClick="arrowR(event,this)"></span>
+					</div>
+				</div>
+			</div>
+			<div id="Action" class="d_none">
+				<A id="drow" href="javascript:void(0);" onclick="drow(event,this);">ドロー</A></BR>
+				<A id="set" href="javascript:void(0);" onclick="set(event,this);">セット宣言</A></BR>
+				<A id="play" href="javascript:void(0);" onclick="play(event,this);">使用宣言</A></BR>
+				<A id="attack" href="javascript:void(0);" onclick="attack(event,this);">アタック宣言</A></BR>
+				<A id="guard" href="javascript:void(0);" onclick="guard(event,this);">ガード宣言</A></BR>
+				<A id="target" href="javascript:void(0);" onclick="select_target(event,this);">対象</A></BR>
+				<A id="paycost" href="javascript:void(0);" onclick="pay_cost(event,this);">コスト支払</A></BR>
+				<A id="response" href="javascript:void(0);" onclick="response_end(event,this);">レスポンスなし</A></BR>
+				<A id="start_declaration" href="javascript:void(0);" onclick="phase_start(event,this);">ドローフェイズ開始</A></BR>
+				<A id="end_declaration" href="javascript:void(0);" onclick="phase_end(event,this);">ドローフェイズ終了</A></BR>
+				<A id="forcecheck" href="javascript:void(0);" onclick="force_check(event,this);">E.G.O.勢力チェック</A></BR>
+				<A id="turn" href="javascript:void(0);" onclick="turn_end(event,this);">ターン終了</A></BR>
+			</div>
+		</div>
+	</body>
+</html>
