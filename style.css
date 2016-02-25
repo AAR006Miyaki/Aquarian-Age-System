@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 .d_none {display:none;}
 
     
@@ -116,7 +118,7 @@ img:hover {z-index:2;border: 3px solid while;}
 .Hand_A .area19 {width:90px; height:130px; position:absolute;top:5px;left:770px;}
 .Hand_A .area20 {width:90px; height:130px; position:absolute;top:5px;left:810px;}
 .Hand_A .area21 {width:90px; height:130px; position:absolute;top:5px;left:850px;}
-/* OŠp–îˆó‚ğ‘OiFrontj‚Éi¶Œü‚«FLeftj‚Å‚Â‚¯‚é */
+/* ä¸‰è§’çŸ¢å°ã‚’å‰ï¼ˆFrontï¼‰ã«ï¼ˆå·¦å‘ãï¼šLeftï¼‰ã§ã¤ã‘ã‚‹ */
 .arrowFL{ position:relative; bottom:-55px; left:0; padding-left:20px; z-index:3; }
 .Discard_A .arrowFL , .Exclusion_A .arrowFL{ bottom:-35px; left:0; }
 .arrowFL:before{
@@ -128,7 +130,7 @@ img:hover {z-index:2;border: 3px solid while;}
 	border-bottom: 10px solid transparent;
 	border-right: 15px solid #ffcc00;
 }
-/* OŠp–îˆó‚ğ‘OiFrontj‚Éi‰EŒü‚«FRightj‚Å‚Â‚¯‚é */
+/* ä¸‰è§’çŸ¢å°ã‚’å‰ï¼ˆFrontï¼‰ã«ï¼ˆå³å‘ãï¼šRightï¼‰ã§ã¤ã‘ã‚‹ */
 .arrowFR{ position:relative; bottom:-55px; left:85px; padding-left:20px; z-index:3; }
 .Discard_A .arrowFR , .Exclusion_A .arrowFR{ bottom:-35px; left:125px; }
 .arrowFR:before{
