@@ -1,10 +1,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Aquarian Age System</title>
 		
 		<link href="./style.css" rel="stylesheet" type="text/css" media="all" />
-		<script src="./data.js" type="text/javascript"></script>
-		<script src="./system.js" type="text/javascript"></script>
+		<script src="./data.js" type="text/javascript" charset="UTF-8"></script>
+		<script src="./system.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 	<body onload="g_start()">
 		<div id="Game" class="Game" onclick="popUp(event,this)">
@@ -240,18 +241,18 @@
 				</div>
 			</div>
 			<div id="Action" class="d_none">
-				<A id="drow" href="javascript:void(0);" onclick="drow(event,this);">�h���[</A></BR>
-				<A id="set" href="javascript:void(0);" onclick="set(event,this);">�Z�b�g�錾</A></BR>
-				<A id="play" href="javascript:void(0);" onclick="play(event,this);">�g�p�錾</A></BR>
-				<A id="attack" href="javascript:void(0);" onclick="attack(event,this);">�A�^�b�N�錾</A></BR>
-				<A id="guard" href="javascript:void(0);" onclick="guard(event,this);">�K�[�h�錾</A></BR>
-				<A id="target" href="javascript:void(0);" onclick="select_target(event,this);">�Ώ�</A></BR>
-				<A id="paycost" href="javascript:void(0);" onclick="pay_cost(event,this);">�R�X�g�x��</A></BR>
-				<A id="response" href="javascript:void(0);" onclick="response_end(event,this);">���X�|���X�Ȃ�</A></BR>
-				<A id="start_declaration" href="javascript:void(0);" onclick="phase_start(event,this);">�h���[�t�F�C�Y�J�n</A></BR>
-				<A id="end_declaration" href="javascript:void(0);" onclick="phase_end(event,this);">�h���[�t�F�C�Y�I��</A></BR>
-				<A id="forcecheck" href="javascript:void(0);" onclick="force_check(event,this);">E.G.O.���̓`�F�b�N</A></BR>
-				<A id="turn" href="javascript:void(0);" onclick="turn_end(event,this);">�^�[���I��</A></BR>
+				<A id="drow" href="javascript:void(0);" onclick="drow(event,this);">ドロー</A></BR>
+				<A id="set" href="javascript:void(0);" onclick="set(event,this);">セット宣言</A></BR>
+				<A id="play" href="javascript:void(0);" onclick="play(event,this);">使用宣言</A></BR>
+				<A id="attack" href="javascript:void(0);" onclick="attack(event,this);">アタック宣言</A></BR>
+				<A id="guard" href="javascript:void(0);" onclick="guard(event,this);">ガード宣言</A></BR>
+				<A id="target" href="javascript:void(0);" onclick="select_target(event,this);">対象</A></BR>
+				<A id="paycost" href="javascript:void(0);" onclick="pay_cost(event,this);">コスト支払</A></BR>
+				<A id="response" href="javascript:void(0);" onclick="response_end(event,this);">レスポンスなし</A></BR>
+				<A id="start_declaration" href="javascript:void(0);" onclick="phase_start(event,this);">ドローフェイズ開始</A></BR>
+				<A id="end_declaration" href="javascript:void(0);" onclick="phase_end(event,this);">ドローフェイズ終了</A></BR>
+				<A id="forcecheck" href="javascript:void(0);" onclick="force_check(event,this);">E.G.O.勢力チェック</A></BR>
+				<A id="turn" href="javascript:void(0);" onclick="turn_end(event,this);">ターン終了</A></BR>
 			</div>
 		</div>
 	</body>

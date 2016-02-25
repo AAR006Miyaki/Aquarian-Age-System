@@ -1,11 +1,11 @@
-// Gameƒf[ƒ^
-var DiffPageX=-30,DiffPageY=-15;//ƒuƒ‰ƒEƒU•ÊÀ•W•â³—p•Ï”
-const e_force = {Ego:0,Ara:1,Wiz:2,Dar:3,Kyo:4,Era:5,Non:6};//¨—ÍˆÊ’u—ñ‹“’è”
+// Gameãƒ‡ãƒ¼ã‚¿
+var DiffPageX=-30,DiffPageY=-15;//ãƒ–ãƒ©ã‚¦ã‚¶åˆ¥åº§æ¨™è£œæ­£ç”¨å¤‰æ•°
+const e_force = {Ego:0,Ara:1,Wiz:2,Dar:3,Kyo:4,Era:5,Non:6};//å‹¢åŠ›ä½ç½®åˆ—æŒ™å®šæ•°
 const sel_Array = [
 		["EGO_A1","ARA_A1","WIZ_A1","Dar_A1","Kyo_A1","Era_A1","Non_A1"],
 		["EGO_A2","ARA_A2","WIZ_A2","Dar_A2","Kyo_A2","Era_A2","Non_A2"]
-	];//ã‚Ì—ñ‹“’è”‚É‘Î‰‚µ‚½ŠeƒvƒŒƒCƒ„[‚Ì¨—ÍƒGƒŠƒA–¼‚Ì”z—ñ
-const Force_Name = ["E.G.O.","ˆ¢—…–ë¯","WIZ-DOM","ƒ_[ƒNƒƒA","‹É¯’é‘","ƒCƒŒƒCƒU[","¨—Í‚È‚µ"];//“¯‚¶‚­ã‚Ì—ñ‹“’è”‚É‘Î‰‚µ‚½¨—Í–¼‚Ì”z—ñ
+	];//ä¸Šã®åˆ—æŒ™å®šæ•°ã«å¯¾å¿œã—ãŸå„ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‹¢åŠ›ã‚¨ãƒªã‚¢åã®é…åˆ—
+const Force_Name = ["E.G.O.","é˜¿ç¾…è€¶è­˜","WIZ-DOM","ãƒ€ãƒ¼ã‚¯ãƒ­ã‚¢","æ¥µæ˜Ÿå¸å›½","ã‚¤ãƒ¬ã‚¤ã‚¶ãƒ¼","å‹¢åŠ›ãªã—"];//åŒã˜ãä¸Šã®åˆ—æŒ™å®šæ•°ã«å¯¾å¿œã—ãŸå‹¢åŠ›åã®é…åˆ—
 const e_area = {
 	Territory:0,
 		Force:0,
@@ -26,8 +26,8 @@ const e_area = {
 	Discard:5,
 	Damege:6,
 	Exclusion:7
-};//ƒvƒŒƒCƒ„[‚ÌƒGƒŠƒA\¬‚ğ‹Lq‚µ‚½—ñ‹“’è”
-const e_ctype = {character:1,breakcard:2,parmanent:4,project:8,fast:16};//ƒJ[ƒhƒ^ƒCƒv—ñ‹“’è”
+};//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ã‚¨ãƒªã‚¢æ§‹æˆã‚’è¨˜è¿°ã—ãŸåˆ—æŒ™å®šæ•°
+const e_ctype = {character:1,breakcard:2,parmanent:4,project:8,fast:16};//ã‚«ãƒ¼ãƒ‰ã‚¿ã‚¤ãƒ—åˆ—æŒ™å®šæ•°
 const e_char_def = {
 	characters:0,
 	character:1,
@@ -36,25 +36,25 @@ const e_char_def = {
 	setcard:2,
 		parmanent_g:0,
 		power_g:1
-};//ƒLƒƒƒ‰ƒNƒ^[\‘¢‚ğ‹Lq‚µ‚½—ñ‹“’è”
-const e_phase = {Drow:0,Aggressive:1,Main:2,Power:3,Discard:4};//ƒtƒFƒCƒY‚Ì•À‚Ñ‚ğ‹Lq‚µ‚½—ñ‹“’è”
-var PhaseCount = e_phase.Drow;//ƒtƒFƒCƒYƒJƒEƒ“ƒ^F‰Šú’lƒhƒ[ƒtƒFƒCƒY
-var PhaseStart = false ;//ƒtƒFƒCƒYŠJn‚ğŠÇ—‚·‚éƒtƒ‰ƒOF‰Šú’l:‹U
-var TurnCount = 0 ;//ƒ^[ƒ“ƒJƒEƒ“ƒ^F‰Šú’l0
-var ForceCount = e_force.Ego ;//¨—ÍƒtƒFƒCƒY’†‚Ì¨—Íƒ`ƒFƒbƒNƒJƒEƒ“ƒ^F‰Šú’lE.G.O.
-var ResponseCount = 0 ;//ƒŒƒXƒ|ƒ“ƒXƒJƒEƒ“ƒ^F‰Šú’l0
-var DrawCount = 7 ;//ƒhƒ[ƒJƒEƒ“ƒ^F‰Šú’l7
-var DrowFlag = true ;//ƒhƒ[ƒtƒ‰ƒO
-var ChargeCount = 0 ;//ƒ`ƒƒ[ƒWƒJƒEƒ“ƒ^F‰Šú’l0
+};//ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼æ§‹é€ ã‚’è¨˜è¿°ã—ãŸåˆ—æŒ™å®šæ•°
+const e_phase = {Drow:0,Aggressive:1,Main:2,Power:3,Discard:4};//ãƒ•ã‚§ã‚¤ã‚ºã®ä¸¦ã³ã‚’è¨˜è¿°ã—ãŸåˆ—æŒ™å®šæ•°
+var PhaseCount = e_phase.Drow;//ãƒ•ã‚§ã‚¤ã‚ºã‚«ã‚¦ãƒ³ã‚¿ï¼šåˆæœŸå€¤ãƒ‰ãƒ­ãƒ¼ãƒ•ã‚§ã‚¤ã‚º
+var PhaseStart = false ;//ãƒ•ã‚§ã‚¤ã‚ºé–‹å§‹ã‚’ç®¡ç†ã™ã‚‹ãƒ•ãƒ©ã‚°ï¼šåˆæœŸå€¤:å½
+var TurnCount = 0 ;//ã‚¿ãƒ¼ãƒ³ã‚«ã‚¦ãƒ³ã‚¿ï¼šåˆæœŸå€¤0
+var ForceCount = e_force.Ego ;//å‹¢åŠ›ãƒ•ã‚§ã‚¤ã‚ºä¸­ã®å‹¢åŠ›ãƒã‚§ãƒƒã‚¯ã‚«ã‚¦ãƒ³ã‚¿ï¼šåˆæœŸå€¤E.G.O.
+var ResponseCount = 0 ;//ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã‚«ã‚¦ãƒ³ã‚¿ï¼šåˆæœŸå€¤0
+var DrawCount = 7 ;//ãƒ‰ãƒ­ãƒ¼ã‚«ã‚¦ãƒ³ã‚¿ï¼šåˆæœŸå€¤7
+var DrowFlag = true ;//ãƒ‰ãƒ­ãƒ¼ãƒ•ãƒ©ã‚°
+var ChargeCount = 0 ;//ãƒãƒ£ãƒ¼ã‚¸ã‚«ã‚¦ãƒ³ã‚¿ï¼šåˆæœŸå€¤0
 var PlayerNo = 2;//
 var Hand_Max = 7 ;
 var DiscardFlag = false ;
 var Damege_Max = 10 ;
 var Select_Target = {} ;
-var iTargets =1 ;/*‘ÎÛ‚Ì” */
+var iTargets =1 ;/*å¯¾è±¡ã®æ•° */
 
 var card = {
-	No:{Saga:4,Code:"No",Num:1,Serial:{}},//Serial‚ÍÄû˜^ƒJ[ƒh‚Ì‚İ‚¿‚Ü‚·BÄû˜^‚ÌŒ³‚É‚È‚Á‚½ƒJ[ƒh‚ÌNoƒIƒuƒWƒFƒNƒg@—ásaga1‚ÌNo1‚ÌÄû˜^‚Ìê‡iSerial:{Saga:1,Code:"No",Num:1}j
+	No:{Saga:4,Code:"No",Num:1,Serial:{}},//Serialã¯å†åéŒ²ã‚«ãƒ¼ãƒ‰ã®ã¿æŒã¡ã¾ã™ã€‚å†åéŒ²ã®å…ƒã«ãªã£ãŸã‚«ãƒ¼ãƒ‰ã®Noã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€€ä¾‹saga1ã®No1ã®å†åéŒ²ã®å ´åˆï¼ˆSerial:{Saga:1,Code:"No",Num:1}ï¼‰
 	Type:e_ctype,
 	Force:{Ego:0,Ara:1,Wiz:2,Dar:3,Kyo:4,Era:5,Her:6,Ego_F:0,Ara_F:1,Wiz_F:2,Dar_F:3,Kyo_F:4,Era_F:5,Her_F:6},
 	Param:{
@@ -99,7 +99,7 @@ var card = {
 			}
 		},
 		Name:{
-			Class:"ƒGƒ“ƒWƒFƒ‹—q‚¶",
+			Class:"ã‚¨ãƒ³ã‚¸ã‚§ãƒ«å¥³å­é«˜ç”Ÿ",
 			Person:""
 		},
 		Text:{text:""}
@@ -111,37 +111,37 @@ var card = {
 	Time:{Instant:0,Duration:0}
 };
 
-var card1 = {No:{Saga:3,Code:"No",Num:1},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:2,Difense:1,Name:{Class:"ƒGƒ“ƒWƒFƒ‹—q‚¶"},Text:{text:"u‚ ‚È‚½‚É‚ÍA’m‚Á‚Ä‚¨‚¢‚Ä‚Ù‚µ‚¢‚ÌEEEEEEv"}},Icon:{StudentF:1,EraserF:1}};
-var card2 = {No:{Saga:3,Code:"No",Num:2},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:1,Difense:1,Skill:{Synchro:1},Name:{Class:"ƒVƒ“ƒNƒEƒcƒCƒ“"}},Icon:{ScholarF:1,ScannerF:1}};
-var card3 = {No:{Saga:3,Code:"No",Num:3},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:1,Difense:1,Skill:{Charge:[1]},Name:{Class:"“VËƒSƒ‹ƒtƒ@["}},Icon:{WorkerF:1,AthleteF:1}};
-var card4 = {No:{Saga:3,Code:"No",Num:4},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:2,Difense:1,Skill:{Charge:[1],Aggressive:1},Name:{Class:"–é—V‚Ñ—q‚¶"}},Icon:{StudentF:1,VampireF:1}};
-var card5 = {No:{Saga:3,Code:"No",Num:5},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:1,Difense:1,Skill:{Charge:[1],Resist:{Facter:{Kyo:1}},Aggressive:1},Name:{Class:"’´”\—Í¬Šw¶"}},Icon:{StudentF:1,ScannerF:1}};
-var card6 = {No:{Saga:3,Code:"No",Num:6},Type:1,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:1,Skill:{Charge:[1],Bind:[1],Aggressive:1},Name:{Class:"•ï‘Ñ­—"}},Icon:{TalentF:1,Machine:1,Undead:1}};
-var card7 = {No:{Saga:3,Code:"No",Num:7},Type:1,Force:{Ego:1},Param:{Mind:0,Attack:0,Difense:3,Skill:{Charge:[1],Intercept:1},Name:{Class:"ƒCƒ“ƒXƒgƒƒCƒh"}},Icon:{AthleteF:1,Android:1}};
-var card8 = {No:{Saga:3,Code:"No",Num:8},Type:1,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:1,Skill:{Draw:[1],Aggressive:1},Name:{Class:"—Ô¶"}},Icon:{Machine:1,WorkerF:1}};
-var card9 = {No:{Saga:3,Code:"No",Num:9},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:1,Difense:1,Skill:{Charge:[1],Capacity:[-1],Shield:1},Name:{Class:"ƒeƒB[ƒ^ƒCƒ€ƒƒCƒh"}},Icon:{MysticF:1,WorkerF:1}};
-var card10 = {No:{Saga:3,Code:"No",Num:10},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Charge:[1]},Name:{Class:"Ê^•”ˆõ"},Text:{text:"uˆêu‚ğØ‚èæ‚é‚½‚ß‚ÉA‚¶‚Á‚Æ‘Ò‚Â‚±‚Æ‚ª‚Å‚«‚È‚­‚¿‚á‚Ëv"}},Icon:{StudentF:1,WerewolfF:1},Facter:{Ego:1},Cost:0};
-var card11 = {No:{Saga:3,Code:"No",Num:11},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Draw:[1]},Name:{Class:"ƒAƒ“ƒhƒƒCƒhƒƒCƒh"},Text:{text:"u0715@’U“ß—l‚¨–ÚŠo‚ßŠ®—¹B0720@‚²’©H€”õŠ®—¹B0800@’U“ß—lo‹ÎŠ®—¹B0820Œ»İ@´‘|ŠJnv"}},Icon:{WorkerF:1,Android:1},Facter:{Ego:1},Cost:0};
-var card12 = {No:{Saga:3,Code:"No",Num:12},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Charge:[1],Resist:{Facter:{Kyo:1}}},Name:{Class:"’´”\—ÍŒ¤‹†Ò"},Text:{text:"u‚¢‚¢‚Æ‚±‚É—ˆ‚½‚ËB‚½‚Á‚½¡–Ê”’‚¢‚±‚Æ‚É‹C•t‚¢‚½‚Æ‚±‚ë‚Å‚ËB‚¿‚å‚Á‚ÆÀŒ±‚É‹¦—Í‚µ‚Ä‚­‚ê‚æv"}},Icon:{ScholarF:1,ScannerF:1},Facter:{Ego:1},Cost:1};
-var card13 = {No:{Saga:3,Code:"No",Num:13},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Charge:[1],Shield:1},Name:{Class:"ƒlƒbƒgƒAƒCƒhƒ‹"},Text:{text:"u…‰j‚Ìö‹Æ‚ğƒTƒ{‚Á‚ÄZÉ— ‚Å‚¨‚µ‚á‚×‚èB‚±‚Ì‚ ‚Æ‚İ‚Â‚©‚Á‚Ä“{‚ç‚ê‚¿‚á‚¢‚Ü‚µ‚½B‚Ä‚Ö™*^_^*Uv"}},Icon:{Machine:1,TalentF:1},Facter:{Ego:1},Cost:1};
-var card14 = {No:{Saga:3,Code:"No",Num:14},Type:2,Force:{Ego:1},Param:{Mind:4,Attack:3,Difense:3,Skill:{Offensive:1,Defensive:1},Name:{Class:"ƒCƒ“ƒ‰ƒCƒ“ƒXƒP[ƒ^["},Text:{text:"u‚¨‚Á‚Í‚æ[‚ÁI@‚Ü‚Á‚½‚Ë[‚ÁIv"}},Icon:{StudentF:1,AthleteF:1},Facter:{Ego:2},Cost:1};
-var card15 = {No:{Saga:3,Code:"No",Num:15},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Draw:[1],Resist:{Facter:{Kyo:1}}},Name:{Class:"ƒRƒ}ƒ“ƒ_["},Text:{text:"uƒAƒ^ƒV‚Í‚ËA•‰‚¯‚éí‚¢‚Í‚µ‚È‚¢å‹`‚¾B‚»‚ÌƒAƒ^ƒV‚ªí‚¤‚©‚ç‚É‚ÍAŸ‚Á‚Ä‚±‚Æ‚³v"}},Icon:{WorkerF:1,WarriorF:1},Facter:{Ego:1},Cost:1};
+var card1 = {No:{Saga:3,Code:"No",Num:1},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:2,Difense:1,Name:{Class:"ã‚¨ãƒ³ã‚¸ã‚§ãƒ«å¥³å­é«˜ç”Ÿ"},Text:{text:"ã€Œã‚ãªãŸã«ã¯ã€çŸ¥ã£ã¦ãŠã„ã¦ã»ã—ã„ã®ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ãƒ»ã€"}},Icon:{StudentF:1,EraserF:1}};
+var card2 = {No:{Saga:3,Code:"No",Num:2},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:1,Difense:1,Skill:{Synchro:1},Name:{Class:"ã‚·ãƒ³ã‚¯ãƒ­ãƒ»ãƒ„ã‚¤ãƒ³"}},Icon:{ScholarF:1,ScannerF:1}};
+var card3 = {No:{Saga:3,Code:"No",Num:3},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:1,Difense:1,Skill:{Charge:[1]},Name:{Class:"å¤©æ‰ã‚´ãƒ«ãƒ•ã‚¡ãƒ¼"}},Icon:{WorkerF:1,AthleteF:1}};
+var card4 = {No:{Saga:3,Code:"No",Num:4},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:2,Difense:1,Skill:{Charge:[1],Aggressive:1},Name:{Class:"å¤œéŠã³å¥³å­é«˜ç”Ÿ"}},Icon:{StudentF:1,VampireF:1}};
+var card5 = {No:{Saga:3,Code:"No",Num:5},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:1,Difense:1,Skill:{Charge:[1],Resist:{Facter:{Kyo:1}},Aggressive:1},Name:{Class:"è¶…èƒ½åŠ›å°å­¦ç”Ÿ"}},Icon:{StudentF:1,ScannerF:1}};
+var card6 = {No:{Saga:3,Code:"No",Num:6},Type:1,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:1,Skill:{Charge:[1],Bind:[1],Aggressive:1},Name:{Class:"åŒ…å¸¯å°‘å¥³"}},Icon:{TalentF:1,Machine:1,Undead:1}};
+var card7 = {No:{Saga:3,Code:"No",Num:7},Type:1,Force:{Ego:1},Param:{Mind:0,Attack:0,Difense:3,Skill:{Charge:[1],Intercept:1},Name:{Class:"ã‚¤ãƒ³ã‚¹ãƒˆãƒ­ã‚¤ãƒ‰"}},Icon:{AthleteF:1,Android:1}};
+var card8 = {No:{Saga:3,Code:"No",Num:8},Type:1,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:1,Skill:{Draw:[1],Aggressive:1},Name:{Class:"å¥³è»ŠæŒ"}},Icon:{Machine:1,WorkerF:1}};
+var card9 = {No:{Saga:3,Code:"No",Num:9},Type:1,Force:{Ego:1},Param:{Mind:2,Attack:1,Difense:1,Skill:{Charge:[1],Capacity:[-1],Shield:1},Name:{Class:"ãƒ†ã‚£ãƒ¼ã‚¿ã‚¤ãƒ ãƒ¡ã‚¤ãƒ‰"}},Icon:{MysticF:1,WorkerF:1}};
+var card10 = {No:{Saga:3,Code:"No",Num:10},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Charge:[1]},Name:{Class:"å†™çœŸéƒ¨å“¡"},Text:{text:"ã€Œä¸€ç¬ã‚’åˆ‡ã‚Šå–ã‚‹ãŸã‚ã«ã€ã˜ã£ã¨å¾…ã¤ã“ã¨ãŒã§ããªãã¡ã‚ƒã­ã€"}},Icon:{StudentF:1,WerewolfF:1},Facter:{Ego:1},Cost:0};
+var card11 = {No:{Saga:3,Code:"No",Num:11},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Draw:[1]},Name:{Class:"ã‚¢ãƒ³ãƒ‰ãƒ­ã‚¤ãƒ‰ãƒ¡ã‚¤ãƒ‰"},Text:{text:"ã€Œ0715ã€€æ—¦é‚£æ§˜ãŠç›®è¦šã‚å®Œäº†ã€‚0720ã€€ã”æœé£Ÿæº–å‚™å®Œäº†ã€‚0800ã€€æ—¦é‚£æ§˜å‡ºå‹¤å®Œäº†ã€‚0820ç¾åœ¨ã€€æ¸…æƒé–‹å§‹ã€"}},Icon:{WorkerF:1,Android:1},Facter:{Ego:1},Cost:0};
+var card12 = {No:{Saga:3,Code:"No",Num:12},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Charge:[1],Resist:{Facter:{Kyo:1}}},Name:{Class:"è¶…èƒ½åŠ›ç ”ç©¶è€…"},Text:{text:"ã€Œã„ã„ã¨ã“ã«æ¥ãŸã­ã€‚ãŸã£ãŸä»Šé¢ç™½ã„ã“ã¨ã«æ°—ä»˜ã„ãŸã¨ã“ã‚ã§ã­ã€‚ã¡ã‚‡ã£ã¨å®Ÿé¨“ã«å”åŠ›ã—ã¦ãã‚Œã‚ˆã€"}},Icon:{ScholarF:1,ScannerF:1},Facter:{Ego:1},Cost:1};
+var card13 = {No:{Saga:3,Code:"No",Num:13},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Charge:[1],Shield:1},Name:{Class:"ãƒãƒƒãƒˆã‚¢ã‚¤ãƒ‰ãƒ«"},Text:{text:"ã€Œæ°´æ³³ã®æˆæ¥­ã‚’ã‚µãƒœã£ã¦æ ¡èˆè£ã§ãŠã—ã‚ƒã¹ã‚Šã€‚ã“ã®ã‚ã¨ã¿ã¤ã‹ã£ã¦æ€’ã‚‰ã‚Œã¡ã‚ƒã„ã¾ã—ãŸã€‚ã¦ã¸â˜†*^_^*ã‚ã€"}},Icon:{Machine:1,TalentF:1},Facter:{Ego:1},Cost:1};
+var card14 = {No:{Saga:3,Code:"No",Num:14},Type:2,Force:{Ego:1},Param:{Mind:4,Attack:3,Difense:3,Skill:{Offensive:1,Defensive:1},Name:{Class:"ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³ã‚¹ã‚±ãƒ¼ã‚¿ãƒ¼"},Text:{text:"ã€ŒãŠã£ã¯ã‚ˆãƒ¼ã£ï¼ã€€ã¾ã£ãŸã­ãƒ¼ã£ï¼ã€"}},Icon:{StudentF:1,AthleteF:1},Facter:{Ego:2},Cost:1};
+var card15 = {No:{Saga:3,Code:"No",Num:15},Type:2,Force:{Ego:1},Param:{Mind:3,Attack:2,Difense:2,Skill:{Draw:[1],Resist:{Facter:{Kyo:1}}},Name:{Class:"ã‚³ãƒãƒ³ãƒ€ãƒ¼"},Text:{text:"ã€Œã‚¢ã‚¿ã‚·ã¯ã­ã€è² ã‘ã‚‹æˆ¦ã„ã¯ã—ãªã„ä¸»ç¾©ã ã€‚ãã®ã‚¢ã‚¿ã‚·ãŒæˆ¦ã†ã‹ã‚‰ã«ã¯ã€å‹ã£ã¦ã“ã¨ã•ã€"}},Icon:{WorkerF:1,WarriorF:1},Facter:{Ego:1},Cost:1};
 
-var card171 = {No:{Saga:3,Code:"No",Num:171},Type:1,Force:{Era:1},Param:{Mind:1,Attack:3,Difense:1,Name:{Class:"ƒXƒy[ƒXƒpƒCƒƒbƒg"},Text:{text:"u‚±‚ÌU“®A‚½‚Ü‚ñ‚È‚¢‚Ëv"}},Icon:{Machine:1,WarriorF:1}};
-var card172 = {No:{Saga:3,Code:"No",Num:172},Type:1,Force:{Era:1},Param:{Mind:1,Attack:2,Difense:1,Skill:{Defensive:1},Name:{Class:"ƒ‰ƒuƒ‹ƒhƒ‰ƒO[ƒ“"}},Icon:{DragoonF:1,WarriorF:1}};
-var card173 = {No:{Saga:3,Code:"No",Num:173},Type:1,Force:{Era:1},Param:{Mind:1,Attack:2,Difense:1,Skill:{Charge:[1]},Name:{Class:"ƒhƒ‰ƒO[ƒ“EƒVƒƒ[ƒ}ƒ“"}},Icon:{DragoonF:1,MysticF:1}};
-var card174 = {No:{Saga:3,Code:"No",Num:174},Type:1,Force:{Era:1},Param:{Mind:1,Attack:3,Difense:1,Skill:{Charge:[1],Aggressive:1},Name:{Class:"ƒTƒCƒo[ƒNƒ[ƒ“"}},Icon:{CyborgF:1,CreatureF:1}};
-var card175 = {No:{Saga:3,Code:"No",Num:175},Type:1,Force:{Era:1},Param:{Mind:1,Attack:2,Difense:1,Skill:{Charge:[1],Aggressive:1,Resist:{Facter:{Ego:1}}},Name:{Class:"ƒCƒ“ƒvƒ‰ƒ“ƒeƒbƒh"}},Icon:{CyborgF:1,WarriorF:1}};
-var card176 = {No:{Saga:3,Code:"No",Num:176},Type:1,Force:{Era:1},Param:{Mind:2,Attack:3,Difense:1,Skill:{Charge:[1],Aggressive:1,Bind:[1]},Name:{Class:"ƒGƒ“ƒWƒFƒ‹’†Šw¶"}},Icon:{EraserF:1,StudentF:1,Ghost:1}};
-var card177 = {No:{Saga:3,Code:"No",Num:177},Type:1,Force:{Era:1},Param:{Mind:0,Attack:0,Difense:3,Skill:{Charge:[1],Intercept:1},Name:{Class:"ƒAƒ“ƒhƒƒCƒhEƒ^ƒCƒv‚g"}},Icon:{Android:1,CreatureF:1}};
-var card178 = {No:{Saga:3,Code:"No",Num:178},Type:1,Force:{Era:1},Param:{Mind:2,Attack:3,Difense:1,Skill:{Draw:[1],Aggressive:1},Name:{Class:"ƒGƒ“ƒWƒFƒ‹ƒƒCƒh"}},Icon:{EraserF:1,WorkerF:1}};
-var card179 = {No:{Saga:3,Code:"No",Num:179},Type:1,Force:{Era:1},Param:{Mind:1,Attack:2,Difense:1,Skill:{Charge:[1],Capacity:[-1],Shield:1},Name:{Class:"ƒgƒ‰ƒCƒIƒyƒŒ[ƒ^["}},Icon:{TriF:1,CyborgF:1}};
-var card186 = {No:{Saga:3,Code:"No",Num:186},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Charge:[1]},Name:{Class:"ƒq[ƒgƒhƒ‰ƒO[ƒ“"},Text:{text:"uƒIƒCƒIƒCAƒ}ƒW‚ÅŸ‚Ä‚é‚Æv‚Á‚Äƒ“‚ÌHv"}},Icon:{DragoonF:1},Facter:{Era:1},Cost:0};
-var card187 = {No:{Saga:3,Code:"No",Num:187},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Draw:[1]},Name:{Class:"ƒhƒ‰ƒO[ƒ“Eƒ`ƒƒƒ“ƒsƒIƒ“"},Text:{text:"uí‚Éí‚Ì€”õ‚ğ‘Ó‚ç‚¸A‹|‚ğæ‚éS\‚¦‚ğ‚¿‘±‚¯‚é‚±‚ÆB‚»‚ê‚ª‚Å‚«‚È‚­‚Îím‚Ì“ª‚Í–±‚Ü‚ç‚Êv"}},Icon:{DragoonF:1},Facter:{Era:1},Cost:0};
-var card188 = {No:{Saga:3,Code:"No",Num:188},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Charge:[1],Resist:{Facter:{Ego:1}}},Name:{Class:"ƒAƒ“ƒhƒƒCƒhEƒ^ƒCƒv‚o"},Text:{text:"uƒtƒHƒgƒ“ƒ`ƒbƒh[“UŠ®—¹v"}},Icon:{Android:1},Facter:{Era:1},Cost:1};
-var card189 = {No:{Saga:3,Code:"No",Num:189},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Charge:[1],Shield:1},Name:{Class:"ƒV[ƒ‹ƒhEƒGƒ“ƒWƒFƒ‹"},Text:{text:"u‚±‚±‚àƒLƒPƒ“‚È‚Ì‚¨Hv"}},Icon:{EraserF:1},Facter:{Era:1},Cost:1};
-var card190 = {No:{Saga:3,Code:"No",Num:190},Type:2,Force:{Era:1},Param:{Mind:3,Attack:5,Difense:3,Skill:{Boost:[1]},Name:{Class:"ƒGƒAƒ{[ƒO"},Text:{text:"uæs‚·‚éƒbI Œã‹l‚Í”C‚¹‚½ƒbIv"}},Icon:{CyborgF:1},Facter:{Era:2},Cost:1};
-var card191 = {No:{Saga:3,Code:"No",Num:191},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Charge:[1]},Name:{Class:"ƒfƒ…ƒiƒ~ƒX"},Text:{text:"uÙ‚«‚Ìn‚É‹t‚ç‚¤‚Æ‚Ív"}},Icon:{EraserF:1},Facter:{Era:1},Cost:1};
+var card171 = {No:{Saga:3,Code:"No",Num:171},Type:1,Force:{Era:1},Param:{Mind:1,Attack:3,Difense:1,Name:{Class:"ã‚¹ãƒšãƒ¼ã‚¹ãƒ‘ã‚¤ãƒ­ãƒƒãƒˆ"},Text:{text:"ã€Œã“ã®æŒ¯å‹•ã€ãŸã¾ã‚“ãªã„ã­ã€"}},Icon:{Machine:1,WarriorF:1}};
+var card172 = {No:{Saga:3,Code:"No",Num:172},Type:1,Force:{Era:1},Param:{Mind:1,Attack:2,Difense:1,Skill:{Defensive:1},Name:{Class:"ãƒ©ãƒ–ãƒ«ãƒ‰ãƒ©ã‚°ãƒ¼ãƒ³"}},Icon:{DragoonF:1,WarriorF:1}};
+var card173 = {No:{Saga:3,Code:"No",Num:173},Type:1,Force:{Era:1},Param:{Mind:1,Attack:2,Difense:1,Skill:{Charge:[1]},Name:{Class:"ãƒ‰ãƒ©ã‚°ãƒ¼ãƒ³ãƒ»ã‚·ãƒ£ãƒ¼ãƒãƒ³"}},Icon:{DragoonF:1,MysticF:1}};
+var card174 = {No:{Saga:3,Code:"No",Num:174},Type:1,Force:{Era:1},Param:{Mind:1,Attack:3,Difense:1,Skill:{Charge:[1],Aggressive:1},Name:{Class:"ã‚µã‚¤ãƒãƒ¼ã‚¯ãƒ­ãƒ¼ãƒ³"}},Icon:{CyborgF:1,CreatureF:1}};
+var card175 = {No:{Saga:3,Code:"No",Num:175},Type:1,Force:{Era:1},Param:{Mind:1,Attack:2,Difense:1,Skill:{Charge:[1],Aggressive:1,Resist:{Facter:{Ego:1}}},Name:{Class:"ã‚¤ãƒ³ãƒ—ãƒ©ãƒ³ãƒ†ãƒƒãƒ‰"}},Icon:{CyborgF:1,WarriorF:1}};
+var card176 = {No:{Saga:3,Code:"No",Num:176},Type:1,Force:{Era:1},Param:{Mind:2,Attack:3,Difense:1,Skill:{Charge:[1],Aggressive:1,Bind:[1]},Name:{Class:"ã‚¨ãƒ³ã‚¸ã‚§ãƒ«ä¸­å­¦ç”Ÿ"}},Icon:{EraserF:1,StudentF:1,Ghost:1}};
+var card177 = {No:{Saga:3,Code:"No",Num:177},Type:1,Force:{Era:1},Param:{Mind:0,Attack:0,Difense:3,Skill:{Charge:[1],Intercept:1},Name:{Class:"ã‚¢ãƒ³ãƒ‰ãƒ­ã‚¤ãƒ‰ãƒ»ã‚¿ã‚¤ãƒ—ï¼¨"}},Icon:{Android:1,CreatureF:1}};
+var card178 = {No:{Saga:3,Code:"No",Num:178},Type:1,Force:{Era:1},Param:{Mind:2,Attack:3,Difense:1,Skill:{Draw:[1],Aggressive:1},Name:{Class:"ã‚¨ãƒ³ã‚¸ã‚§ãƒ«ãƒ¡ã‚¤ãƒ‰"}},Icon:{EraserF:1,WorkerF:1}};
+var card179 = {No:{Saga:3,Code:"No",Num:179},Type:1,Force:{Era:1},Param:{Mind:1,Attack:2,Difense:1,Skill:{Charge:[1],Capacity:[-1],Shield:1},Name:{Class:"ãƒˆãƒ©ã‚¤ã‚ªãƒšãƒ¬ãƒ¼ã‚¿ãƒ¼"}},Icon:{TriF:1,CyborgF:1}};
+var card186 = {No:{Saga:3,Code:"No",Num:186},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Charge:[1]},Name:{Class:"ãƒ’ãƒ¼ãƒˆãƒ‰ãƒ©ã‚°ãƒ¼ãƒ³"},Text:{text:"ã€Œã‚ªã‚¤ã‚ªã‚¤ã€ãƒã‚¸ã§å‹ã¦ã‚‹ã¨æ€ã£ã¦ãƒ³ã®ï¼Ÿã€"}},Icon:{DragoonF:1},Facter:{Era:1},Cost:0};
+var card187 = {No:{Saga:3,Code:"No",Num:187},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Draw:[1]},Name:{Class:"ãƒ‰ãƒ©ã‚°ãƒ¼ãƒ³ãƒ»ãƒãƒ£ãƒ³ãƒ”ã‚ªãƒ³"},Text:{text:"ã€Œå¸¸ã«æˆ¦ã®æº–å‚™ã‚’æ€ ã‚‰ãšã€å¼“ã‚’å–ã‚‹å¿ƒæ§‹ãˆã‚’æŒã¡ç¶šã‘ã‚‹ã“ã¨ã€‚ãã‚ŒãŒã§ããªãã°æˆ¦å£«ã®é ­ã¯å‹™ã¾ã‚‰ã¬ã€"}},Icon:{DragoonF:1},Facter:{Era:1},Cost:0};
+var card188 = {No:{Saga:3,Code:"No",Num:188},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Charge:[1],Resist:{Facter:{Ego:1}}},Name:{Class:"ã‚¢ãƒ³ãƒ‰ãƒ­ã‚¤ãƒ‰ãƒ»ã‚¿ã‚¤ãƒ—ï¼°"},Text:{text:"ã€Œãƒ•ã‚©ãƒˆãƒ³ãƒãƒƒãƒ‰å……å¡«å®Œäº†ã€"}},Icon:{Android:1},Facter:{Era:1},Cost:1};
+var card189 = {No:{Saga:3,Code:"No",Num:189},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Charge:[1],Shield:1},Name:{Class:"ã‚·ãƒ¼ãƒ«ãƒ‰ãƒ»ã‚¨ãƒ³ã‚¸ã‚§ãƒ«"},Text:{text:"ã€Œã“ã“ã‚‚ã‚­ã‚±ãƒ³ãªã®ãŠï¼Ÿã€"}},Icon:{EraserF:1},Facter:{Era:1},Cost:1};
+var card190 = {No:{Saga:3,Code:"No",Num:190},Type:2,Force:{Era:1},Param:{Mind:3,Attack:5,Difense:3,Skill:{Boost:[1]},Name:{Class:"ã‚¨ã‚¢ãƒœãƒ¼ã‚°"},Text:{text:"ã€Œå…ˆè¡Œã™ã‚‹ãƒƒï¼ å¾Œè©°ã¯ä»»ã›ãŸãƒƒï¼ã€"}},Icon:{CyborgF:1},Facter:{Era:2},Cost:1};
+var card191 = {No:{Saga:3,Code:"No",Num:191},Type:2,Force:{Era:1},Param:{Mind:2,Attack:4,Difense:2,Skill:{Charge:[1]},Name:{Class:"ãƒ‡ãƒ¥ãƒŠãƒŸã‚¹"},Text:{text:"ã€Œè£ãã®åˆƒã«é€†ã‚‰ã†ã¨ã¯ã€"}},Icon:{EraserF:1},Facter:{Era:1},Cost:1};
 
 
 var deck1 = [card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card];
